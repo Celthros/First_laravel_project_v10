@@ -39,6 +39,7 @@ class User extends Authenticatable
         //'password' => 'hashed',
     ];
 
+    // laravel mutators based on current/previous functions in laravel and chnage it to be more.
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
