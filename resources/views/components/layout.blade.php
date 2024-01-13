@@ -8,6 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <style>
+    html{
+        scroll-behavior: smooth;
+    }
 .clamp{
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
@@ -42,7 +45,7 @@
 								<a href="/register" class="text-xs font-bold uppercase">Register</a>
 								<a href="/login" class="text-xs font-bold uppercase ml-6">Login</a>
                             @endguest
-								<a href="#" class="ml-3 rounded-full bg-blue-500 px-5 py-3 text-xs font-semibold uppercase text-white">
+								<a href="#newsletter" class="ml-3 rounded-full bg-blue-500 px-5 py-3 text-xs font-semibold uppercase text-white">
 										Subscribe for Updates
 								</a>
 						</div>
@@ -50,7 +53,7 @@
 
 				{{ $slot }}
 
-				<footer class="mt-16 rounded-xl border border-black border-opacity-5 bg-gray-100 px-10 py-16 text-center">
+				<footer id="newsletter" class="mt-16 rounded-xl border border-black border-opacity-5 bg-gray-100 px-10 py-16 text-center">
 						<img src="/images/lary-newsletter-icon.svg" alt="" class="mx-auto -mb-6" style="width: 145px;">
 						<h5 class="text-3xl">Stay in touch with the latest posts</h5>
 						<p class="mt-3 text-sm">Promise to keep the inbox clean. No bugs.</p>
