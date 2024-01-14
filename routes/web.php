@@ -7,7 +7,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
-use MailchimpMarketing\ApiClient; // Import the MailchimpMarketing\ApiClient class
 
 Route::get('/', [PostController::class, 'index'])->name('home');
 

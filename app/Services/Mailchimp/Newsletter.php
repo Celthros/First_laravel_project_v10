@@ -20,7 +20,7 @@ class Newsletter
     {
         return (new ApiClient())->setConfig([
             'apiKey' => config('services.mailchimp.key'),
-            'server' => 'us19'
+            'server' => 'us8'
         ]);
     }
 }

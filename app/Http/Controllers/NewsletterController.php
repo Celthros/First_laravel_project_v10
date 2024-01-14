@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Omnisend\Newsletter;
+use App\Services\Mailchimp\Newsletter;
 use Exception;
 use Illuminate\Validation\ValidationException;
 
