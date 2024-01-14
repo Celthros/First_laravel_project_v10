@@ -41,6 +41,9 @@
                                 <button type="submit">Log Out</button>
 
                             </form>
+
+                            <a href="/admin/posts/create" class="text-xs font-semibold text-blue-500 ml-6">Create Post</a>
+
                             @else
 								<a href="/register" class="text-xs font-bold uppercase">Register</a>
 								<a href="/login" class="text-xs font-bold uppercase ml-6">Login</a>
