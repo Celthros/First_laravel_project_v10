@@ -31,4 +31,25 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'mailchimp' => [
+        'key' => env('MAILCHIMP_KEY'),
+        'lists' => [
+            'subscribers' => env('MAILCHIMP_LIST_SUBSCRIBERS')
+        ]
+    ],
+
+    'omnisend' => [
+        'key' => env('OMNISEND_KEY'),
+        'endpoint' => env('OMNISEND_ENDPOINT'),
+        'type' => [
+            'contacts' => 'contacts',
+            'carts' => 'carts',
+            'orders' => 'orders',
+            'campaigns' => 'campaigns',
+            'products' => 'products',
+            'events' => 'events',
+            'batches' => 'batches'
+        ]
+    ]
+
 ];
