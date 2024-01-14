@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Mailchimp;
 
-use MailchimpMarketing\ApiClient;
+use \MailchimpMarketing\ApiClient;
 
 class Newsletter
 {
@@ -20,7 +20,7 @@ class Newsletter
     {
         return (new ApiClient())->setConfig([
             'apiKey' => config('services.mailchimp.key'),
-            'server' => 'us6'
+            'server' => 'us19'
         ]);
     }
 }
