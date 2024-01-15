@@ -2,15 +2,19 @@
 
 namespace App\Services\Omnisend;
 
+use App\Services\Newsletter;
 use GuzzleHttp\Client;
 
-class Newsletter
+class OmnisendNewsletter implements Newsletter
 {
+    public function __construct(protected Client $client)
+    {
+    }
     public function subscribe(string $email, string $type = null)
     {
         $type ??= config('services.omnisend.endpoint') . config('services.omnisend.type.contacts');
 
-        return $this->client()->request('POST', $type, [
+        return $this->client->request('POST', $type, [
             'body' => json_encode([
                 "sendWelcomeEmail" => true,
                 "identifiers" => [
@@ -31,10 +35,5 @@ class Newsletter
                 'content-type' => 'application/json',
             ],
         ]);
-    }
-
-    protected function client()
-    {
-        return new Client();
     }
 }
