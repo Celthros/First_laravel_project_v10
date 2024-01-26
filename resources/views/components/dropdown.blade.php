@@ -1,6 +1,6 @@
 
 @props(['trigger'])
-<div x-data="{ show: false}" @click.away="show = false" class="appearance-none bg-transparent text-left">
+<div x-data="{ show: false}" @click.away="show = false" class="relative appearance-none bg-transparent text-left">
     {{-- trigger --}}
         <div @click="show = ! show">
             {{ $trigger }}
