@@ -51,4 +51,24 @@ class AdminPostController extends Controller
             'post' => $post
         ]);
     }
+
+    public function update(Post $post)
+    {
+        $attributes = request()->validate([
+            'title' => 'required',
+            'thumbnail' => ['image'],
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
+            'excerpt' => 'required',
+            'body' => 'required',
+            'category_id' => ['required', Rule::exists('categories', 'id')]
+        ]);
+
+        if (isset($attributes['thumbnails'])) {
+            $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        }
+
+        $post->update($attributes);
+
+        return back()->with('success', 'Post Updated!');
+    }
 }
