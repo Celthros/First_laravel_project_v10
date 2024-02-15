@@ -3,11 +3,7 @@
 		{{ $attributes->merge(['class' => 'rounded-xl border border-black border-opacity-0 transition-colors duration-300 hover:border-opacity-5 hover:bg-gray-100']) }}>
 		<div class="px-5 py-6">
 				<div>
-                    @if (file_exists(public_path().'/storage/' . $post->thumbnail) )
-                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="Blog Post illustration" class="rounded-xl" />
-                    @else
-                <img src="/images/illustration-3.png" alt="Blog Post illustration" class="rounded-xl" />
-                    @endif
+                    <img src="{{ $post->featuredThumbnail() }}" alt="Blog Post illustration" class="rounded-xl" />
 				</div>
 
 				<div class="mt-8 flex flex-col justify-between">

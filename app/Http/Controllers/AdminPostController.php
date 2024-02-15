@@ -41,7 +41,7 @@ class AdminPostController extends Controller
 
         Post::create($attributes);
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Post Created!');
     }
 
     public function edit(Post $post)
@@ -63,12 +63,19 @@ class AdminPostController extends Controller
             'category_id' => ['required', Rule::exists('categories', 'id')]
         ]);
 
-        if (isset($attributes['thumbnails'])) {
+        if (isset($attributes['thumbnail'])) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         }
 
         $post->update($attributes);
 
         return back()->with('success', 'Post Updated!');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return back()->with('success', 'Post Deleted!');
     }
 }

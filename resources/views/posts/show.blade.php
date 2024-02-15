@@ -5,7 +5,7 @@
 				<main class="mx-auto mt-10 max-w-6xl space-y-6 lg:mt-20">
 						<article class="mx-auto max-w-4xl gap-x-10 lg:grid lg:grid-cols-12">
 								<div class="col-span-4 mb-10 lg:pt-14 lg:text-center">
-										<img src="{{ asset('storage/' . $post->thumbnail) ? asset('storage/' . $post->thumbnail) : '/images/illustration-1.png' }}" alt="" class="rounded-xl">
+										<img src="{{ $post->thumbnail() }}" alt="" class="rounded-xl">
 
 										<p class="mt-4 block text-xs text-gray-400">
 												Published <time>{{ $post->created_at->diffForHumans() }}</time>

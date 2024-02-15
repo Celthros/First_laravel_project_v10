@@ -3,10 +3,10 @@
         <form action="/admin/posts/{{ $post->id }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
-            <x-form.input name="title" :value="old('title', $post->title)" />
-            <x-form.input name="slug" :value="old('slug', $post->slug)" />
+            <x-form.input name="title" :value="old('title', $post->title)" required />
+            <x-form.input name="slug" :value="old('slug', $post->slug)" required />
             <div class="flex mt-6">
-                <img src="{{ asset('storage/' . $post->thumbnail) ? asset('storage/' . $post->thumbnail) : '/images/illustration-1.png' }}" alt="" class="rounded-xl mr-6" width="100">
+                <img src="{{ $post->thumbnail() }}" alt="" class="rounded-xl mr-6" width="100">
                 <div class="flex-1">
                 <x-form.input name="thumbnail" type="file" :value="old('thumbnail', $post->thumbnail)" />
                 </div>
