@@ -64,7 +64,6 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    // create a public function for thumbnail and detect if the post has a thumbnail or not. if not return a default image
     public function thumbnail()
     {
         if ($this->thumbnail) {
