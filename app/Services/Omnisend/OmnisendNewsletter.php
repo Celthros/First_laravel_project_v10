@@ -57,14 +57,4 @@ class OmnisendNewsletter implements Newsletter
             ],
         ]);
     }
-
-
-    public function register(): void
-    {
-        app()->bind(Newsletter::class, function () {
-
-            $client = new Client();
-            return new OmnisendNewsletter($client);
-        });
-    }
 }

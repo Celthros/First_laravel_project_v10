@@ -28,17 +28,4 @@ class MailchimpNewsletter implements Newsletter
 
         return $this->client->lists->deleteListMember($list, md5($email));
     }
-
-    //  base on informaiton below create a function that calls mailchimp for AppServiceProvider.php
-    public function register(): void
-    {
-        app()->bind(Newsletter::class, function () {
-
-            $client = (new ApiClient())->setConfig([
-                'apiKey' => config('services.mailchimp.key'),
-                'server' => 'us8'
-            ]);
-            return new MailchimpNewsletter($client);
-        });
-    }
 }

@@ -20,14 +20,14 @@ class AppServiceProvider extends ServiceProvider
     {
         app()->bind(Newsletter::class, function () {
 
-            $client = new Client();
-            return new OmnisendNewsletter($client);
+            //$client = new Client();
+            //return new OmnisendNewsletter($client);
 
-            /*             $client = (new ApiClient())->setConfig([
+            $client = (new ApiClient())->setConfig([
                 'apiKey' => config('services.mailchimp.key'),
                 'server' => 'us8'
             ]);
-            return new MailchimpNewsletter($client); */
+            return new MailchimpNewsletter($client);
         });
     }
 
