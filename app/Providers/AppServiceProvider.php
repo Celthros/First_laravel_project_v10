@@ -2,14 +2,17 @@
 
 namespace App\Providers;
 
-use App\Services\Mailchimp\MailchimpNewsletter;
-use App\Services\Omnisend\OmnisendNewsletter;
-use App\Services\Newsletter;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\ServiceProvider;
-use MailchimpMarketing\ApiClient;
 use GuzzleHttp\Client;
+use App\Services\Newsletter;
+use MailchimpMarketing\ApiClient;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\ServiceProvider;
+use App\Services\Omnisend\OmnisendNewsletter;
+use App\Services\Mailchimp\MailchimpNewsletter;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,5 +41,13 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useTailwind();
         Model::unguard();
+
+        Gate::define('admin', function (User $user) {
+            return $user->username === 'tyler34';
+        });
+
+        Blade::if('admin', function () {
+            return request()->user()?->can('admin');
+        });
     }
 }
